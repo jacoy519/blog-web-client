@@ -15,7 +15,12 @@ class ArticleListGetComponent extends  React.Component {
             navNode.setAttribute("class","current");
         }
 
-        let url= "http://"+ window.location.hostname +":3000/blog/rest/articles?pageNo=" + this.props.params.pageNo;
+        let pageNo = this.props.params.pageNo;
+        if(pageNo === undefined) {
+            pageNo = 1;
+        }
+
+        let url= "http://"+ window.location.hostname +":3000/blog/rest/articles?pageNo=" + pageNo;
 
         get(url)
             .then((res)=> {

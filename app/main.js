@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Router, Route, browserHistory } from 'react-router';
+import { Router, Route, browserHistory , IndexRoute} from 'react-router';
 
 import AccountLoginComponent from './components/AccountLoginComponent';
 import HomeComponent from './components/HomeComponent';
@@ -51,6 +51,7 @@ ReactDOM.render((
         <Route onEnter={validateToken} path="/delete/:item/:key" component={DeleteComponent}/>
         <Route onEnter={validateToken} path="/edit/finish" component={EditJumpComponent}/>
         <Route path="/" component={HomeComponent}>
+            <IndexRoute component={ArticleListGetComponent}/>
             <Route path="/home/:pageNo" component={ArticleListGetComponent}/>
             <Route path="/article/:id" component={ArticleGetComponent}/>
             <Route path="/books" component={BookListGetComponent}/>
