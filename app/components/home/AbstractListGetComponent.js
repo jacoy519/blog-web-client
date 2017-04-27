@@ -20,12 +20,12 @@ class AbstractListGetComponent extends React.Component {
         let url = undefined;
 
         if(request === "search") {
-            url = "http://"+window.location.hostname +":3000/blog/rest/articleAbstracts/searchList?searchKey="+ key + "&pageNo=" + pageNo;
+            url = "http://"+window.location.hostname +":3000/blog/rest/articlePage/briefSearchArticlePage?searchKey="+ key + "&pageNo=" + pageNo;
 
         }
 
         if(request === "type") {
-            url = "http://"+ window.location.hostname +":3000/blog/rest/articleAbstracts/typeList?articleType="+ key + "&pageNo=" + pageNo;
+            url = "http://"+ window.location.hostname +":3000/blog/rest/articlePage/briefTypeArticlePage?articleType="+ key + "&pageNo=" + pageNo;
         }
         get(url)
             .then((res) => {

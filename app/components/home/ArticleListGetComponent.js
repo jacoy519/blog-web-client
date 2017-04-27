@@ -20,7 +20,7 @@ class ArticleListGetComponent extends  React.Component {
             pageNo = 1;
         }
 
-        let url= "http://"+ window.location.hostname +":3000/blog/rest/articles?pageNo=" + pageNo;
+        let url= "http://"+ window.location.hostname +":3000/blog/rest/articlePage/detailArticlePage?pageNo=" + pageNo;
 
         get(url)
             .then((res)=> {
