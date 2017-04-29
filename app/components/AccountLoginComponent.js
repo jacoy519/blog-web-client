@@ -50,20 +50,21 @@ class AccountLoginComponent extends React.Component {
         return (
             <div>
                 <header>
-                    <h1>欢迎登陆</h1>
+                    <h1>登陆</h1>
                 </header>
 
-                <main>
+                <div className="content-form">
                     <form onSubmit={(e) => this.handleSubmit(e)}>
                         <label>用户名：</label>
                         <input type="text" value={username} onChange={(e)=>this.handleValueChange('username', e.target.value)}/>
                         <br/>
                         <label>密码：</label>
-                        <input type="text" value={password} onChange={(e)=>this.handleValueChange('password',e.target.value)}/>
+                        <input className="password" type="text" value={password} onChange={(e)=>this.handleValueChange('password',e.target.value)}/>
                         <br/>
                         <input type="submit" value="提交"/>
                     </form>
-                </main>
+                    <a href="/forgetPassword"  value="忘记密码">忘记密码</a>
+                </div>
             </div>
 
         );
