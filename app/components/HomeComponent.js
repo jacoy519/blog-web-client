@@ -99,6 +99,15 @@ class  HomeComponent extends React.Component {
                     addArticleLinkName.setAttribute("class","fa fa-cog");
                     addArticleLinkName.innerHTML = "新增文章";
                     addArticleLink.appendChild(addArticleLinkName);
+
+                    let imageLink = document.createElement("a");
+                    imageLink.setAttribute("href","/image");
+                    navMenu.appendChild(imageLink);
+
+                    let imageLinkName = document.createElement("i");
+                    imageLinkName.setAttribute("class","fa fa-cog");
+                    imageLinkName.innerHTML = "图片";
+                    imageLink.appendChild(imageLinkName);
                 }
             })
 

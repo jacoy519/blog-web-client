@@ -14,6 +14,7 @@ import BookEditComponent from './components/edit/BookEditComponent';
 import EditJumpComponent from  './components/edit/EditJumpComponent';
 import PasswordResetEmailSendComponent from './components/account/PasswordResetEmailSendComponent';
 import PasswordResetComponent from './components/account/PasswordResetComponent';
+import FileUploadComponent from  './components/edit/FileUploadComponent';
 
 
 async function validateToken(nextState, replace, next) {
@@ -61,5 +62,6 @@ ReactDOM.render((
             <Route path="/books" component={BookListGetComponent}/>
             <Route path="/:request/:key/:pageNo" component={AbstractListGetComponent}/>
         </Route>
+        <Route onEnter={validateToken} path="/image" component={FileUploadComponent}/>
     </Router>
 ), document.getElementById('content'));
