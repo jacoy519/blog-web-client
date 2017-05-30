@@ -15,6 +15,7 @@ import EditJumpComponent from  './components/edit/EditJumpComponent';
 import PasswordResetEmailSendComponent from './components/account/PasswordResetEmailSendComponent';
 import PasswordResetComponent from './components/account/PasswordResetComponent';
 import FileUploadComponent from  './components/edit/FileUploadComponent';
+import DeleteImageComponent from  './components/edit/DeleteImageComponent';
 
 
 async function validateToken(nextState, replace, next) {
@@ -53,7 +54,9 @@ ReactDOM.render((
         <Route  path = "/resetPassword/:token" component = {PasswordResetComponent}/>
         <Route onEnter={validateToken} path="/edit/article/:operationKey(/:key)" component={ArticleEditComponent}/>
         <Route onEnter={validateToken} path="/edit/book/:operationKey(/:key)" component={BookEditComponent}/>
+        <Route onEnter={validateToken} path="/deleteImage/fileName" component={DeleteImageComponent}/>
         <Route onEnter={validateToken} path="/delete/:item/:key" component={DeleteComponent}/>
+
         <Route onEnter={validateToken} path="/edit/finish" component={EditJumpComponent}/>
         <Route path="/" component={HomeComponent}>
             <IndexRoute component={ArticleListGetComponent}/>

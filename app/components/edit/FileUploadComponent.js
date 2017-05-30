@@ -2,12 +2,17 @@
  * Created by medivh on 2017/5/20.
  */
 import React from 'react';
-import {get} from '../../utils/Request'
+import {get,del} from '../../utils/Request'
+import { browserHistory } from 'react-router';
 
 class FileUploadComponent extends React.Component {
 
 
     componentDidMount() {
+        this.showImages();
+    }
+
+    showImages() {
         let url = "http://"+ window.location.hostname +":3000/blog/rest/images";
         get(url)
             .then((res) => {
@@ -16,15 +21,25 @@ class FileUploadComponent extends React.Component {
                     let remoteFile = res[index];
 
                     let imageListItem = document.createElement("li");
+                    imageListItem.setAttribute("id", remoteFile.fileName);
                     imageList.appendChild(imageListItem);
 
                     let image = document.createElement("img");
                     image.setAttribute("src", remoteFile.src);
                     image.setAttribute("width",100);
                     imageListItem.appendChild(image);
+
+                    let deleteLink = document.createElement("a");
+                    deleteLink.setAttribute("href","/deleteImage/fileName?name=" + remoteFile.fileName)
+                    deleteLink.innerHTML = "删除";
+                    imageListItem.appendChild(deleteLink);
+
                 }
             })
     }
+
+
+
 
     handleSubmit(e) {
         e.preventDefault();
@@ -56,6 +71,11 @@ class FileUploadComponent extends React.Component {
                 image.setAttribute("src", res.src);
                 image.setAttribute("width",100);
                 imageListItem.appendChild(image);
+
+                let deleteLink = document.createElement("a");
+                deleteLink.setAttribute("href","/deleteImage/fileName?name=" + res.fileName)
+                deleteLink.innerHTML = "删除";
+                imageListItem.appendChild(deleteLink);
 
             })
             .catch((err)=> {
