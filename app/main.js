@@ -31,7 +31,11 @@ async function validateToken(nextState, replace, next) {
     })
         .then((res) => res.json())
         .then((res) => {
-            return res.result;
+            if(res.success === true) {
+                return res.result;
+            } else {
+                return false;
+            }
         })
         .catch((e) => {
         console.error(e);

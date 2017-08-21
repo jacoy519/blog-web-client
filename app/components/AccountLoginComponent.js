@@ -35,9 +35,13 @@ class AccountLoginComponent extends React.Component {
         })
             .then((res) => res.json())
             .then((res) => {
-                console.log(res);
-                localStorage.setItem("access-token",res.token);
-                browserHistory.push("/home/1")
+                if(res.success === true) {
+                    res = res.data;
+                    console.log(res);
+                    localStorage.setItem("access-token",res.token);
+                    browserHistory.push("/home/1")
+                }
+
             })
             .catch((err)=> {
                 console.error(err);

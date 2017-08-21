@@ -29,9 +29,10 @@ class AbstractListGetComponent extends React.Component {
         }
         get(url)
             .then((res) => {
-                if(res === undefined) {
+                if(res === false) {
                     return;
                 }
+                res = res.data;
                 let postArchive = document.getElementById("post-archive");
 
                 let Title = document.createElement("h2");

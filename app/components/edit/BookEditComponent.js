@@ -48,9 +48,10 @@ class BookEditComponent extends React.Component {
             let url = "http://"+ window.location.hostname +":3000/blog/rest/books/" + this.props.params.key;
             get(url)
                 .then((res) => {
-                    if( res === undefined) {
+                    if( res === false) {
                         return;
                     }
+                    res = res.data;
                     let title = document.getElementById("title");
                     title.value= res.title;
                 })

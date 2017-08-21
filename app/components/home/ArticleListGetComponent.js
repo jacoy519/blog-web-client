@@ -24,9 +24,10 @@ class ArticleListGetComponent extends  React.Component {
 
         get(url)
             .then((res)=> {
-                if (res === undefined) {
+                if (res === false) {
                     return;
                 }
+                res = res.data;
 
                 let contentContainer=document.getElementById("content_container");
                 for (let index in res.list) {

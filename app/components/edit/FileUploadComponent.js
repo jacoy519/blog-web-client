@@ -16,6 +16,10 @@ class FileUploadComponent extends React.Component {
         let url = "http://"+ window.location.hostname +":3000/blog/rest/images";
         get(url)
             .then((res) => {
+                if(res.success === false) {
+                    return;
+                }
+                res = res.data;
                 let imageList = document.getElementById("imageList");
                 for(let index in res) {
                     let remoteFile = res[index];

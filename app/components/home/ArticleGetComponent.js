@@ -66,6 +66,7 @@ class ArticleGetComponent extends React.Component {
 
                     validateToken()
                         .then((res) => {
+
                         if(res === true) {
                             let postMeta=document.getElementById("post-meta-id");
 

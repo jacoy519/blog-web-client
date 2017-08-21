@@ -35,10 +35,9 @@ class  HomeComponent extends React.Component {
     componentDidMount(){
         get("http://"+ window.location.hostname +":3000/blog/rest/articleType/count")
             .then((res) => {
-                if(res !== undefined) {
-
+                if(res.success !== false) {
+                    res = res.data;
                     let ul = document.getElementById('category-list');
-
                     for(let entiy in res)
                     {
                         let articleType = entiy;
@@ -59,8 +58,6 @@ class  HomeComponent extends React.Component {
                         span.setAttribute('class', 'category-list-count');
                         span.innerHTML = count;
                         li.appendChild(span);
-
-
                     }
 
 
@@ -75,6 +72,10 @@ class  HomeComponent extends React.Component {
 
         validateToken()
             .then((res) => {
+                if(res.success === false) {
+                    return;
+                }
+                res = res.data;
                 if(res === true) {
                     let description = document.getElementById("description");
                     description.innerHTML="欢迎管理员登录";
