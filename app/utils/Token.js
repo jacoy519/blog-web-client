@@ -4,7 +4,6 @@
 export  default  function validateToken() {
     return fetch("http://"+ window.location.hostname +":3000/blog/rest/validation/token", {
         method: 'post',
-        mode: 'cros',
         body: '',
         headers: {
             'Content-Type' : 'application/json',
@@ -27,7 +26,6 @@ export  async function AsyncValidateToken() {
     const tokenResult = await
         fetch("http://"+ window.location.hostname +":3000/blog/rest/validation/token", {
             method: 'post',
-            mode: 'cros',
             body: '',
             headers: {
                 'Content-Type': 'application/json',

@@ -34,7 +34,6 @@ class FileUploadComponent extends React.Component {
         let url = "http://"+ window.location.hostname +":3000/blog/rest/images";
         fetch(url, {
             method: 'POST',
-            mode: 'cros',
             body: formData,
             headers: {
                 'Accept' : 'application/json',

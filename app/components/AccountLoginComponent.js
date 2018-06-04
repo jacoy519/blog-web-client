@@ -22,7 +22,6 @@ class AccountLoginComponent extends React.Component {
         const {username,password} = this.state;
         fetch("http://"+ window.location.hostname +":3000/blog/rest/validation/account", {
             method: 'post',
-            mode: 'cros',
             body: JSON.stringify({
                 username,
                 password

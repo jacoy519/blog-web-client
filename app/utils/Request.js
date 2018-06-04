@@ -11,7 +11,6 @@ export  default  function request(method, url, body) {
 
     return fetch(url, {
         method: method,
-        mode: 'cros',
         body: body,
         headers: {
             'Content-Type' : 'application/json',
