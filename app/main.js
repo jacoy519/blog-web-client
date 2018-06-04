@@ -20,7 +20,6 @@ import FileUploadComponent from  './components/edit/FileUploadComponent';
 async function validateToken(nextState, replace, next) {
     const tokenResult = await fetch("http://"+ window.location.hostname +":3000/blog/rest/validation/token", {
         method: 'post',
-        mode: 'cros',
         body: '',
         headers: {
             'Content-Type' : 'application/json',
